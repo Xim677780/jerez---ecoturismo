@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecoturismo Jerez</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f8f2;
+      color: #2b3a3a;
+    }
+
+    header {
+      background: #91c788;
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+      font-size: 2rem;
+    }
+
+    nav {
+      background: #558b6e;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    nav button {
+      background: #a3d2ca;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      margin-top: 1rem;
+    }
+
+    .extra-info {
+      display: none;
+      margin-top: 1rem;
+      background: #e8f6ef;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .extra-info.show {
+      display: block;
+    }
+
+    footer {
+      background: #406343;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    #audioControl {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #a3d2ca;
+      border: none;
+      border-radius: 50px;
+      padding: 0.7rem 1rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Ecoturismo en Jerez, Zacatecas
+  </header>
+
+  <nav>
+    <button onclick="scrollToSection('inicio')">Inicio</button>
+    <button onclick="scrollToSection('santuario')">Naturaleza</button>
+    <button onclick="scrollToSection('rios')">Ríos y Cascadas</button>
+    <button onclick="scrollToSection('contacto')">Contacto</button>
+  </nav>
+
+  <main>
+    <section id="inicio">
+      <h2>Bienvenido a Jerez</h2>
+      <p>Jerez, pueblo mágico de Zacatecas, ofrece una experiencia inolvidable para los amantes del ecoturismo.</p>
+      <ul>
+        <li>Conexión con la naturaleza</li>
+        <li>Educación ambiental</li>
+        <li>Apoyo a comunidades locales</li>
+        <li>Conservación del medio ambiente</li>
+      </ul>
+      <button onclick="toggleInfo('info1')">Mostrar más información</button>
+      <div class="extra-info" id="info1">
+        Jerez se destaca por su biodiversidad, sus paisajes montañosos, y su compromiso con el turismo sustentable.
+      </div>
+      <img src="images/jerez-plaza.jpg" alt="Centro de Jerez" />
+    </section>
+
+    <section id="santuario">
+      <h2>Santuario Natural</h2>
+      <p>Jerez cuenta con áreas protegidas donde puedes observar aves, senderos ecológicos y zonas para acampar en armonía con la naturaleza.</p>
+      <img src="images/santuario.jpg" alt="Santuario en Jerez" />
+    </section>
+
+    <section id="rios">
+      <h2>Ríos y Cascadas</h2>
+      <p>Disfruta de ríos cristalinos y cascadas escondidas entre los bosques de la región. Ideales para nadar, hacer picnic o relajarte.</p>
+      <img src="images/rio-cascada.jpg" alt="Ríos y Cascadas de Jerez" />
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Para más información o reservar tu experiencia ecoturística:</p>
+      <ul>
+        <li>Email: contacto@ecoturismojerez.mx</li>
+        <li>WhatsApp: +52 492 000 0000</li>
+        <li>Dirección: Calle Principal 123, Jerez, Zacatecas</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Ecoturismo Jerez · Proyecto Escolar 🌿
+  </footer>
+
+  <button id="audioControl">🔈 Música</button>
+
+  <audio id="backgroundAudio" loop>
+    <source src="audio/musica.mp3" type="audio/mp3" />
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('backgroundAudio');
+    const audioControl = document.getElementById('audioControl');
+    let playing = false;
+
+    audioControl.addEventListener('click', () => {
+      if (!playing) {
+        audio.play();
+        playing = true;
+        audioControl.textContent = '🔊 Pausar Música';
+      } else {
+        audio.pause();
+        playing = false;
+        audioControl.textContent = '🔈 Música';
+      }
+    });
+
+    function toggleInfo(id) {
+      document.getElementById(id).classList.toggle('show');
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
